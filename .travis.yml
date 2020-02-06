@@ -6,11 +6,7 @@ sudo: true
 branches:
   only:
   - master
-
-before_deploy:
-  - ./server/run.sh
-  - ./client/run.sh
-
+  
 deploy:
   # deploy app as api server
   - provider: heroku
@@ -22,3 +18,5 @@ deploy:
 after_deploy:
 # Procfile is only used for client, delete it to let server run 'npm start'
 - rm Procfile
+- ./server/run.sh
+- ./client/run.sh
