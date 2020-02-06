@@ -7,6 +7,10 @@ branches:
   only:
   - master
 
+before_deploy:
+  - ./server/run.sh
+  - ./client/run.sh
+
 deploy:
   # deploy app as api server
   - provider: heroku
